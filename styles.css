@@ -89,6 +89,49 @@ body {
     margin-top: var(--spacing-sm);
 }
 
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: var(--color-white);
+}
+
+.btn-whatsapp:hover {
+    background: #20BA5A;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-schedule {
+    background: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-schedule:hover {
+    background: #88949e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(151, 163, 173, 0.3);
+}
+
 .hero-image {
     overflow: hidden;
     height: 100%;
@@ -443,6 +486,290 @@ body {
     opacity: 0.8;
 }
 
+.contact-whatsapp {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-whatsapp span {
+    color: var(--color-white);
+    font-size: 1rem;
+}
+
+.contact-whatsapp svg {
+    fill: var(--color-white);
+}
+
+/* Sección de Agendar Cita */
+.booking-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--color-light);
+}
+
+.booking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.booking-subtitle {
+    text-align: center;
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.booking-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Calendario */
+.calendar-container {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.calendar-header h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 400;
+}
+
+.month-nav {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.month-nav:hover {
+    background: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-secondary);
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    background: var(--color-light);
+    color: var(--color-primary);
+}
+
+.calendar-day:hover:not(.disabled):not(.other-month) {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    transform: scale(1.05);
+}
+
+.calendar-day.selected {
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.calendar-day.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: var(--color-light);
+}
+
+.calendar-day.other-month {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.calendar-day.today {
+    border: 2px solid var(--color-secondary);
+}
+
+/* Horarios */
+.time-slots-container {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.time-slots-container h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.selected-date-display {
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.time-slot {
+    padding: 0.75rem;
+    background: var(--color-light);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+}
+
+.time-slot:hover:not(.disabled) {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.time-slot.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.time-slot.selected {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+}
+
+/* Formulario de Reserva */
+.booking-form {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--color-light);
+}
+
+.booking-form h4 {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.booking-form input,
+.booking-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--color-light);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.btn-confirm {
+    background: var(--color-primary);
+    color: var(--color-white);
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.btn-confirm:hover {
+    background: #2e383f;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    width: 100%;
+}
+
+.btn-cancel:hover {
+    background: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.booking-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    display: none;
+}
+
+.booking-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.booking-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
 /* Animaciones */
 @keyframes float {
     0%, 100% {
@@ -520,6 +847,20 @@ body {
     .services-grid,
     .steps-grid {
         grid-template-columns: 1fr;
+    }
+
+    .booking-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
