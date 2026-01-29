@@ -882,3 +882,103 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* Perfil Profesional */
+.professional-profile {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.profile-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-text h2 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.profile-text h3 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.credential-highlight {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-bio, .profile-commitment {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+    text-align: justify;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.skill-group {
+    background: var(--color-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-secondary);
+    transition: transform 0.3s ease;
+}
+
+.skill-group:hover {
+    transform: translateY(-5px);
+}
+
+.skill-group h4 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.skill-group ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-group ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+}
+
+.skill-group ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .profile-bio, .profile-commitment {
+        text-align: left;
+    }
+}
+

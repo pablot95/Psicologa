@@ -1,12 +1,12 @@
 // Configuración de Firebase
 // IMPORTANTE: Reemplaza estos valores con tu configuración de Firebase
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "tu-proyecto.firebaseapp.com",
-    projectId: "tu-proyecto-id",
-    storageBucket: "tu-proyecto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "tu-app-id"
+    apiKey: "AIzaSyDBazSiSwuO2eMPWW4X0MQ7olKlulboeC4",
+    authDomain: "mariadelosmilagros-8c2e6.firebaseapp.com",
+    projectId: "mariadelosmilagros-8c2e6",
+    storageBucket: "mariadelosmilagros-8c2e6.firebasestorage.app",
+    messagingSenderId: "127795164134",
+    appId: "1:127795164134:web:4218bf7f24e86978e79c27"
 };
 
 // Inicializar Firebase
@@ -20,7 +20,7 @@ const appointmentsCollection = db.collection('appointments');
 // IMPORTANTE: Reemplaza estos valores con tu configuración de EmailJS
 const emailjsConfig = {
     publicKey: "TU_PUBLIC_KEY",
-    serviceId: "TU_SERVICE_ID",
+    serviceId: "service_bbp058p",
     templateClientId: "template_cliente", // Template para el cliente
     templatePsychologistId: "template_psicologa" // Template para la psicóloga
 };
