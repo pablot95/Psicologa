@@ -195,12 +195,16 @@ body {
     overflow: hidden;
     margin-bottom: var(--spacing-sm);
     background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
 }
 
 .service-card h3 {
@@ -840,8 +844,11 @@ body {
         order: -1;
     }
 
+    /* FORZAR 1 COLUMNA en Fases del Proceso */
     .phases-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: 1fr !important;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .services-grid,
@@ -851,6 +858,54 @@ body {
 
     .booking-content {
         grid-template-columns: 1fr;
+    }
+
+    /* CALENDARIO: reducir tamaño en móviles */
+    .calendar-container {
+        padding: 1rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .month-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .calendar-weekdays {
+        gap: 0.25rem;
+    }
+
+    .calendar-weekdays div {
+        padding: 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    .calendar-days {
+        gap: 0.25rem;
+    }
+
+    .calendar-day {
+        font-size: 0.85rem;
+        padding: 0.25rem;
+    }
+
+    /* TIME SLOTS: más pequeños en móviles */
+    .time-slots {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .time-slot {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.85rem;
+    }
+
+    .time-slots-container {
+        padding: 1rem;
     }
 
     .hero-buttons {
@@ -880,6 +935,41 @@ body {
     .next-steps h2,
     .contact h2 {
         font-size: 1.5rem;
+    }
+
+    /* FORZAR 1 COLUMNA en fases del proceso */
+    .phases-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Calendario aún más compacto */
+    .calendar-container {
+        padding: 0.75rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 1rem;
+    }
+
+    .calendar-weekdays div {
+        font-size: 0.7rem;
+        padding: 0.2rem;
+    }
+
+    .calendar-day {
+        font-size: 0.8rem;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .booking-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .booking-subtitle {
+        font-size: 0.95rem;
     }
 }
 
