@@ -3,7 +3,9 @@ const USER = "mililuena@yahoo.com.ar";
 const PASS = "Mililuena1";
 
 // Login
-document.getElementById('loginBtn').addEventListener('click', () => {
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevenir recarga del formulario
+    
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 

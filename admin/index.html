@@ -19,9 +19,11 @@
     <!-- Login Section -->
     <div id="loginSection" class="login-container">
         <h2>Acceso Administrativo</h2>
-        <input type="email" id="email" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button id="loginBtn" class="btn">Ingresar</button>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Usuario" required autocomplete="username">
+            <input type="password" id="password" placeholder="Contraseña" required autocomplete="current-password">
+            <button type="submit" id="loginBtn" class="btn">Ingresar</button>
+        </form>
     </div>
 
     <!-- Dashboard Section -->
@@ -51,7 +53,7 @@
     </div>
 
     <!-- Cargar configuración -->
-    <script src="../firebase-config.js"></script>
+    <script src="config-admin.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
