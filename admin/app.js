@@ -69,7 +69,7 @@ function renderScheduleEditor() {
         hours.sort();
 
         const dayCard = document.createElement('div');
-        dayCard.className = 'day-card';
+        dayCard.className = 'day-row';
         
         let hoursHtml = hours.map(h => `
             <span class="hour-tag">
@@ -78,9 +78,9 @@ function renderScheduleEditor() {
         `).join('');
 
         dayCard.innerHTML = `
-            <div class="day-header">${daysMap[dayNum]}</div>
-            <div class="hours-list">${hoursHtml}</div>
-            <div class="add-hour-form">
+            <div class="day-name">${daysMap[dayNum]}</div>
+            <div class="hours-tags">${hoursHtml}</div>
+            <div class="add-controls">
                 <input type="time" id="newTime-${dayNum}">
                 <button class="btn btn-success" onclick="addHour(${dayNum})">+</button>
             </div>

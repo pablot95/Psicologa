@@ -18,6 +18,18 @@
         /* Grid de Horarios Mejorado */
         .days-container { display: flex; flex-direction: column; gap: 1rem; }
         .day-row { display: grid; grid-template-columns: 100px 1fr auto; gap: 1rem; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 6px; border-left: 5px solid #3c464e; }
+        
+        @media (max-width: 768px) {
+            .day-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .add-controls {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+
         .day-name { font-weight: bold; font-size: 1.1rem; }
         .hours-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .hour-tag { background: #e2e6ea; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
