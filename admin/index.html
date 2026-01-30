@@ -4,7 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Lic. MM Luena</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Estilos Embebidos para asegurar carga -->
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; color: #333; }
+        .login-container { max-width: 400px; margin: 100px auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .login-container input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        .dashboard-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .section-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        h2 { color: #3c464e; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+        
+        /* Grid de Horarios Mejorado */
+        .days-container { display: flex; flex-direction: column; gap: 1rem; }
+        .day-row { display: grid; grid-template-columns: 100px 1fr auto; gap: 1rem; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 6px; border-left: 5px solid #3c464e; }
+        .day-name { font-weight: bold; font-size: 1.1rem; }
+        .hours-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .hour-tag { background: #e2e6ea; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
+        .remove-hour { color: #dc3545; cursor: pointer; font-weight: bold; padding: 0 4px; border-radius: 50%; }
+        .remove-hour:hover { background: #ffbdc3; }
+        
+        .add-controls { display: flex; gap: 5px; }
+        .add-controls input { padding: 5px; border-radius: 4px; border: 1px solid #ddd; }
+        
+        /* Lista de Citas */
+        .appointment-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: white; border: 1px solid #eee; margin-bottom: 0.5rem; border-radius: 6px; transition: transform 0.2s; }
+        .appointment-item:hover { transform: translateX(5px); border-color: #3c464e; }
+        .client-info strong { font-size: 1.1rem; color: #3c464e; }
+        
+        /* Botones */
+        .btn { padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; background: #3c464e; color: white; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
+        .btn-danger { background: #dc3545; }
+        .btn-success { background: #28a745; }
+        .btn-sm { padding: 0.25rem 0.5rem; font-size: 0.9rem; }
+    </style>
     
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -22,7 +56,7 @@
         <form id="loginForm">
             <input type="email" id="email" placeholder="Usuario" required autocomplete="username">
             <input type="password" id="password" placeholder="Contraseña" required autocomplete="current-password">
-            <button type="submit" id="loginBtn" class="btn">Ingresar</button>
+            <button type="submit" id="loginBtn" class="btn" style="width:100%; margin-top:1rem;">Ingresar</button>
         </form>
     </div>
 
@@ -33,27 +67,27 @@
             <button id="logoutBtn" class="btn btn-danger">Cerrar Sesión</button>
         </header>
 
+        <!-- Gestión de Horarios -->
         <div class="section-card">
-            <h2>📅 Gestionar Horarios Disponibles</h2>
-            <p>Aquí puedes agregar o quitar los horarios base que aparecen disponibles en el calendario.</p>
-            <div id="scheduleEditor" class="days-grid">
-                <!-- Se llena dinámicamente con JS -->
-                Cargando configuración...
+            <h2>📅 Configuración de Horarios</h2>
+            <p>Define tus horarios de atención habituales. Los cambios se guardan automáticamente.</p>
+            <div id="scheduleEditor" class="days-container">
+                <!-- Se llena dinámicamente -->
+                <p>Cargando configuración desde Firebase...</p>
             </div>
         </div>
 
+        <!-- Gestión de Citas -->
         <div class="section-card">
-            <h2>📋 Próximas Citas</h2>
-            <p>Lista de turnos reservados. Puedes cancelar turnos para liberarlos.</p>
-            <div id="appointmentsList" class="appointments-list">
-                <!-- Se llena dinámicamente -->
-                Cargando citas...
+            <h2>📋 Turnos Confirmados</h2>
+            <div id="appointmentsList">
+                <p>Cargando citas...</p>
             </div>
         </div>
     </div>
 
     <script>
-    // Configuración de Firebase - Copia local para Admin
+    // 1. Configuración de Firebase
     const firebaseConfig = {
         apiKey: "AIzaSyDBazSiSwuO2eMPWW4X0MQ7olKlulboeC4",
         authDomain: "mariadelosmilagros-8c2e6.firebaseapp.com",
@@ -63,48 +97,26 @@
         appId: "1:127795164134:web:4218bf7f24e86978e79c27"
     };
 
-    // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-
-    // Referencia a la colección de citas
     const appointmentsCollection = db.collection('appointments');
+    const configCollection = db.collection('config_gral');
 
-    // Configuración de EmailJS
-    const emailjsConfig = {
-        publicKey: "YVBulg3By7Z4rFbWZ",
-        serviceId: "service_09wfwoq",
-        templateClientId: "template_norlx65",
-        templatePsychologistId: "template_lwscxqp"
-    };
-
-    // Inicializar EmailJS
-    (function() {
-        emailjs.init(emailjsConfig.publicKey);
-    })();
-
-    // Exportar para usar en otros archivos
-    window.firebaseDB = {
-        db,
-        appointmentsCollection
-    };
-
-    window.emailjsConfig = emailjsConfig;
-
-    // --- APP LOGIC ---
-
-    // Credenciales (Básico - Lado del cliente)
+    // 2. Lógica de la Aplicación
     const USER = "mililuena@yahoo.com.ar";
     const PASS = "Mililuena1";
 
-    // Login
+    const daysMap = { 1: 'Lunes', 2: 'Martes', 3: 'Miércoles', 4: 'Jueves', 5: 'Viernes', 6: 'Sábado', 0: 'Domingo' };
+    let currentSchedule = {};
+
+    // --- EVENT LISTENERS ---
+
     document.getElementById('loginForm').addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevenir recarga del formulario
-        
-        const email = document.getElementById('email').value;
+        e.preventDefault();
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
 
-        if (email === USER && password === PASS) {
+        if (email.toLowerCase() === USER && password === PASS) {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'block';
             initDashboard();
@@ -113,28 +125,25 @@
         }
     });
 
-    // Inicializar Dashboard
+    document.getElementById('logoutBtn').addEventListener('click', () => location.reload());
+
     async function initDashboard() {
+        console.log("Iniciando dashboard...");
         await loadScheduleConfig();
         await loadAppointments();
     }
 
-    // --- GESTIÓN DE HORARIOS ---
-    const daysMap = {
-        1: 'Lunes', 2: 'Martes', 3: 'Miércoles', 4: 'Jueves', 5: 'Viernes', 6: 'Sábado', 0: 'Domingo'
-    };
-
-    let currentSchedule = {};
+    // --- HORARIOS ---
 
     async function loadScheduleConfig() {
         try {
-            const docRef = window.firebaseDB.db.collection('config_gral').doc('horarios');
-            const doc = await docRef.get();
+            const doc = await configCollection.doc('horarios').get();
             
             if (doc.exists) {
+                console.log("Horarios encontrados en Firebase");
                 currentSchedule = doc.data();
             } else {
-                // Valores por defecto si no existe
+                console.log("No existe config en Firebase, creando valores por defecto...");
                 currentSchedule = {
                     1: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
                     2: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
@@ -143,11 +152,13 @@
                     5: ['09:00', '10:00', '11:00', '14:00', '15:00'],
                     6: [], 0: []
                 };
+                // Guardar la inicialización en Firebase
+                await configCollection.doc('horarios').set(currentSchedule);
             }
             renderScheduleEditor();
         } catch (error) {
-            console.error("Error cargando horarios:", error);
-            alert("Error cargando configuración de horarios. Revisa la consola.");
+            console.error("Error horario:", error);
+            document.getElementById('scheduleEditor').innerHTML = `<p style="color:red">Error cargando horarios: ${error.message}</p>`;
         }
     }
 
@@ -155,133 +166,124 @@
         const container = document.getElementById('scheduleEditor');
         container.innerHTML = '';
 
-        // Ordenar días: Lunes (1) a Domingo (0)
         const order = [1, 2, 3, 4, 5, 6, 0];
 
         order.forEach(dayNum => {
             const hours = currentSchedule[dayNum] || [];
-            // Ordenar horas
             hours.sort();
 
-            const dayCard = document.createElement('div');
-            dayCard.className = 'day-card';
+            const dayRow = document.createElement('div');
+            dayRow.className = 'day-row';
             
-            let hoursHtml = hours.map(h => `
-                <span class="hour-tag">
+            let tagsHtml = hours.map(h => `
+                <div class="hour-tag">
                     ${h} <span class="remove-hour" onclick="removeHour(${dayNum}, '${h}')">×</span>
-                </span>
+                </div>
             `).join('');
+            
+            if(hours.length === 0) tagsHtml = '<span style="color:#999; font-style:italic; font-size:0.9rem">No atiende</span>';
 
-            dayCard.innerHTML = `
-                <div class="day-header">${daysMap[dayNum]}</div>
-                <div class="hours-list">${hoursHtml}</div>
-                <div class="add-hour-form">
+            dayRow.innerHTML = `
+                <div class="day-name">${daysMap[dayNum]}</div>
+                <div class="hours-tags">${tagsHtml}</div>
+                <div class="add-controls">
                     <input type="time" id="newTime-${dayNum}">
-                    <button class="btn btn-success" style="padding: 2px 10px;" onclick="addHour(${dayNum})">+</button>
+                    <button class="btn btn-success btn-sm" onclick="addHour(${dayNum})">Agregar</button>
                 </div>
             `;
-            container.appendChild(dayCard);
+            container.appendChild(dayRow);
         });
     }
 
     window.addHour = async (dayNum) => {
-        const timeInput = document.getElementById(`newTime-${dayNum}`);
-        const time = timeInput.value;
-        
+        const input = document.getElementById(`newTime-${dayNum}`);
+        const time = input.value;
         if (!time) return;
         
         if (!currentSchedule[dayNum]) currentSchedule[dayNum] = [];
         if (currentSchedule[dayNum].includes(time)) {
-            alert('Ese horario ya existe');
-            return;
+            alert('Hora ya existe'); return;
         }
 
         currentSchedule[dayNum].push(time);
         await saveSchedule();
+        input.value = ''; // Limpiar input
     };
 
     window.removeHour = async (dayNum, time) => {
-        if (!confirm(`¿Eliminar horario ${time} del ${daysMap[dayNum]}?`)) return;
-        
+        if (!confirm(`¿Quitar las ${time}hs del ${daysMap[dayNum]}?`)) return;
         currentSchedule[dayNum] = currentSchedule[dayNum].filter(h => h !== time);
         await saveSchedule();
     };
 
     async function saveSchedule() {
         try {
-            await window.firebaseDB.db.collection('config_gral').doc('horarios').set(currentSchedule);
+            await configCollection.doc('horarios').set(currentSchedule);
             renderScheduleEditor();
+            console.log("Horario actualizado en Firebase");
         } catch (e) {
-            console.error(e);
-            alert('Error al guardar cambio');
+            alert("Error guardando: " + e.message);
         }
     }
 
-    // --- GESTIÓN DE CITAS ---
+    // --- CITAS ---
+
     async function loadAppointments() {
-        const list = document.getElementById('appointmentsList');
-        list.innerHTML = 'Cargando...';
+        const listContainer = document.getElementById('appointmentsList');
+        listContainer.innerHTML = 'Cargando...';
 
         try {
-            // Traer citas futuras (podrías filtrar por fecha aqui)
-            const snapshot = await window.firebaseDB.appointmentsCollection
-                .orderBy('date', 'desc')
-                .orderBy('time', 'asc')
-                .limit(50)
-                .get();
+            // Simplificado: Ordenar solo por fecha para evitar errores de índice compuesto
+            const snapshot = await appointmentsCollection.orderBy('date', 'desc').limit(50).get();
 
-            list.innerHTML = '';
-            
             if (snapshot.empty) {
-                list.innerHTML = '<p>No hay citas registradas</p>';
+                listContainer.innerHTML = '<p>No se encontraron citas registradas.</p>';
                 return;
             }
 
+            listContainer.innerHTML = '';
+            
             snapshot.forEach(doc => {
                 const data = doc.data();
-                const id = doc.id;
-                // Simple date format fix
-                let dateStr = data.date;
+                
+                // Formatear fecha bonito
+                let dateDisplay = data.date;
                 try {
-                     const parts = data.date.split('-'); 
-                     if(parts.length === 3) dateStr = `${parts[2]}/${parts[1]}/${parts[0]}`;
+                    const [y, m, d] = data.date.split('-');
+                    dateDisplay = `${d}/${m}/${y}`;
                 } catch(e) {}
 
                 const item = document.createElement('div');
                 item.className = 'appointment-item';
                 item.innerHTML = `
-                    <div>
-                        <strong>${dateStr} - ${data.time} hs</strong><br>
-                        Paciente: ${data.clientName}<br>
-                        <small>📞 ${data.clientPhone} | 📧 ${data.clientEmail}</small>
+                    <div class="client-info">
+                        <strong>📅 ${dateDisplay} - 🕒 ${data.time} hs</strong><br>
+                        <span style="font-size:1.2rem; color:#333">${data.clientName}</span><br>
+                        <span style="color:#666">📞 ${data.clientPhone} | 📧 ${data.clientEmail}</span>
+                        ${data.notes ? `<br><small style="color:#888; font-style:italic">Notas: ${data.notes}</small>` : ''}
                     </div>
-                    <button class="btn btn-danger" onclick="cancelAppointment('${id}')">Cancelar</button>
+                    <button class="btn btn-danger" onclick="cancelAppointment('${doc.id}')">Cancelar Turno</button>
                 `;
-                list.appendChild(item);
+                listContainer.appendChild(item);
             });
 
         } catch (e) {
             console.error(e);
-            list.innerHTML = 'Error cargando citas';
+            listContainer.innerHTML = `<p style="color:red">Error cargando citas: ${e.message}</p>`;
         }
     }
 
     window.cancelAppointment = async (id) => {
-        if (!confirm('¿Seguro que deseas cancelar esta cita? Esta acción liberará el turno.')) return;
-
+        if (!confirm('¿Seguro que deseas LIBERAR este turno? Se borrará la reserva.')) return;
         try {
-            await window.firebaseDB.appointmentsCollection.doc(id).delete();
+            await appointmentsCollection.doc(id).delete();
+            alert("Turno liberado correctamente");
             loadAppointments();
-            alert('Cita cancelada correctamente');
         } catch (e) {
-            console.error(e);
-            alert('Error al cancelar cita');
+            alert("Error: " + e.message);
         }
     };
 
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-        location.reload();
-    });
     </script>
 </body>
 </html>
