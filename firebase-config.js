@@ -19,10 +19,10 @@ const appointmentsCollection = db.collection('appointments');
 // Configuración de EmailJS
 // IMPORTANTE: Reemplaza estos valores con tu configuración de EmailJS
 const emailjsConfig = {
-    publicKey: "TU_PUBLIC_KEY",
-    serviceId: "service_bbp058p",
-    templateClientId: "template_cliente", // Template para el cliente
-    templatePsychologistId: "template_psicologa" // Template para la psicóloga
+    publicKey: "YVBulg3By7Z4rFbWZ", // Pega aquí tu Public Key de la sección "Account"
+    serviceId: "service_09wfwoq", // Pega aquí el ID del servicio SMTP de Hostinger (ej: service_xxxxx)
+    templateClientId: "template_norlx65", // Template para el cliente
+    templatePsychologistId: "template_lwscxqp" // Template para la psicóloga
 };
 
 // Inicializar EmailJS

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Lic. MM Luena</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Login Section -->
+    <div id="loginSection" class="login-container">
+        <h2>Acceso Administrativo</h2>
+        <input type="email" id="email" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button id="loginBtn" class="btn">Ingresar</button>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="dashboard-container" style="display: none;">
+        <header>
+            <h1>Panel de Control</h1>
+            <button id="logoutBtn" class="btn btn-danger">Cerrar Sesión</button>
+        </header>
+
+        <div class="section-card">
+            <h2>📅 Gestionar Horarios Disponibles</h2>
+            <p>Aquí puedes agregar o quitar los horarios base que aparecen disponibles en el calendario.</p>
+            <div id="scheduleEditor" class="days-grid">
+                <!-- Se llena dinámicamente con JS -->
+                Cargando configuración...
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>📋 Próximas Citas</h2>
+            <p>Lista de turnos reservados. Puedes cancelar turnos para liberarlos.</p>
+            <div id="appointmentsList" class="appointments-list">
+                <!-- Se llena dinámicamente -->
+                Cargando citas...
+            </div>
+        </div>
+    </div>
+
+    <!-- Cargar configuración -->
+    <script src="../firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

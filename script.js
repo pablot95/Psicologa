@@ -4,8 +4,8 @@ let selectedDate = null;
 let selectedTime = null;
 let bookedAppointments = [];
 
-// Horarios disponibles por día (puedes personalizarlos)
-const availableHours = {
+// Horarios disponibles predeterminados (se sobrescriben desde Firebase)
+let availableHours = {
     1: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'], // Lunes
     2: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'], // Martes
     3: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'], // Miércoles
@@ -14,6 +14,26 @@ const availableHours = {
     6: [], // Sábado - no disponible
     0: []  // Domingo - no disponible
 };
+
+// Cargar disponibilidad desde Firebase
+async function loadAvailability() {
+    try {
+        const docRef = window.firebaseDB.db.collection('config_gral').doc('horarios');
+        const doc = await docRef.get();
+        if (doc.exists) {
+            console.log('Horarios cargados desde Firebase');
+            availableHours = doc.data();
+            renderCalendar(); // Re-renderizar calendario con nueva info
+            renderTimeSlots(); // Re-renderizar slots si hubiera fecha seleccionada
+        } else {
+            console.log('Usando horarios por defecto (no existe config en Firebase)');
+            // Si quieres crearlo automáticamente para que aparezca en tu panel, podrías descomentar esto:
+            // await docRef.set(availableHours);
+        }
+    } catch (error) {
+        console.error('Error cargando disponibilidad:', error);
+    }
+}
 
 // Cargar citas reservadas desde Firebase
 async function loadBookedAppointments() {
@@ -463,6 +483,7 @@ document.getElementById('cancelBooking').addEventListener('click', cancelBooking
 
 // Inicializar cuando se carga la página
 document.addEventListener('DOMContentLoaded', async () => {
+    loadAvailability(); // Cargar configuración de horarios
     await loadBookedAppointments();
     renderCalendar();
 });
