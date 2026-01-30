@@ -4,6 +4,25 @@ let selectedDate = null;
 let selectedTime = null;
 let bookedAppointments = [];
 
+// Botón flotante - mostrar al salir del hero
+window.addEventListener('scroll', () => {
+    const floatingBtn = document.getElementById('floatingBookBtn');
+    const hero = document.querySelector('.hero');
+    
+    if (hero && floatingBtn) {
+        const heroHeight = hero.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > heroHeight - 100) {
+            floatingBtn.style.display = 'flex';
+            floatingBtn.classList.add('show');
+        } else {
+            floatingBtn.style.display = 'none';
+            floatingBtn.classList.remove('show');
+        }
+    }
+});
+
 // Horarios disponibles predeterminados (se sobrescriben desde Firebase)
 let availableHours = {
     1: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'], // Lunes

@@ -774,6 +774,47 @@ body {
     display: block;
 }
 
+/* Botón Flotante Agendar Cita */
+.floating-book-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(60, 70, 78, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.floating-book-btn:hover {
+    background: #2e383f;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(60, 70, 78, 0.5);
+}
+
+.floating-book-btn.show {
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Animaciones */
 @keyframes float {
     0%, 100% {
@@ -916,6 +957,20 @@ body {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    /* Botón flotante centrado en móviles */
+    .floating-book-btn {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 20px;
+        font-size: 0.95rem;
+        padding: 0.9rem 1.3rem;
+    }
+
+    .floating-book-btn:hover {
+        transform: translateX(-50%) translateY(-5px);
     }
 }
 
