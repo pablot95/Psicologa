@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /admin/
+
+Sitemap: https://tu-dominio.com/sitemap.xml
+
+# Bloquear archivos de configuración
+Disallow: /firebase-config.js
+Disallow: /admin/config-admin.js

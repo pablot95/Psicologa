@@ -774,6 +774,32 @@ body {
     display: block;
 }
 
+/* Botón Flotante WhatsApp */
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    background: #25D366;
+    color: var(--color-white);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.floating-whatsapp-btn:hover {
+    background: #128C7E;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+}
+
 /* Botón Flotante Agendar Cita */
 .floating-book-btn {
     position: fixed;
@@ -958,7 +984,21 @@ body {
         justify-content: center;
     }
 
-    /* Botón flotante centrado en móviles */
+    /* Botón flotante WhatsApp centrado en móviles */
+    .floating-whatsapp-btn {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 100px;
+        font-size: 0.9rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .floating-whatsapp-btn:hover {
+        transform: translateX(-50%) translateY(-5px);
+    }
+
+    /* Botón flotante Agendar centrado en móviles */
     .floating-book-btn {
         left: 50%;
         right: auto;

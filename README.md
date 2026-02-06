@@ -1,4 +1,32 @@
-# Sistema de Reserva de Citas - Psicología
+# Sistema de Reserva de Citas - Psicología | Lic. MM Luena
+
+## Sitio Web Optimizado para SEO
+
+Este sitio web profesional para servicios de psicología está optimizado para aparecer en búsquedas de:
+- **Psicóloga** / **Psicología**
+- **Psicóloga Mar del Plata**
+- **Psicóloga virtual** / **Psicóloga online**
+- **Terapia online** / **Consulta psicológica virtual**
+
+### Optimizaciones SEO Implementadas:
+
+✅ **Meta Tags completos** con palabras clave principales  
+✅ **Schema Markup (JSON-LD)** para Google Rich Snippets  
+✅ **Geo-localización** específica de Mar del Plata  
+✅ **Contenido optimizado** con keywords naturales  
+✅ **Alt text descriptivo** en todas las imágenes  
+✅ **robots.txt y sitemap.xml** configurados  
+✅ **Open Graph tags** para redes sociales  
+
+### Próximos Pasos Recomendados para Mejorar Posicionamiento:
+
+1. **Google My Business** - Crear perfil para Mar del Plata
+2. **Content Marketing** - Blog con artículos sobre salud mental
+3. **Backlinks** - Registrar en directorios de psicólogos
+4. **Velocidad** - Optimizar y comprimir imágenes
+5. **Analytics** - Instalar Google Analytics y Search Console
+
+---
 
 ## Configuración de Firebase
 
