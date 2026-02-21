@@ -1,10 +1,8 @@
-// Credenciales (Básico - Lado del cliente)
 const USER = "mililuena@yahoo.com.ar";
 const PASS = "Mililuena1";
 
-// Login
 document.getElementById('loginForm').addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevenir recarga del formulario
+    e.preventDefault();
     
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -18,13 +16,11 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
     }
 });
 
-// Inicializar Dashboard
 async function initDashboard() {
     await loadScheduleConfig();
     await loadAppointments();
 }
 
-// --- GESTIÓN DE HORARIOS ---
 const daysMap = {
     1: 'Lunes', 2: 'Martes', 3: 'Miércoles', 4: 'Jueves', 5: 'Viernes', 6: 'Sábado', 0: 'Domingo'
 };
@@ -39,7 +35,6 @@ async function loadScheduleConfig() {
         if (doc.exists) {
             currentSchedule = doc.data();
         } else {
-            // Valores por defecto si no existe
             currentSchedule = {
                 1: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
                 2: ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
@@ -60,12 +55,10 @@ function renderScheduleEditor() {
     const container = document.getElementById('scheduleEditor');
     container.innerHTML = '';
 
-    // Ordenar días: Lunes (1) a Domingo (0)
     const order = [1, 2, 3, 4, 5, 6, 0];
 
     order.forEach(dayNum => {
         const hours = currentSchedule[dayNum] || [];
-        // Ordenar horas
         hours.sort();
 
         const dayCard = document.createElement('div');
@@ -116,7 +109,6 @@ async function saveSchedule() {
     try {
         await window.firebaseDB.db.collection('config_gral').doc('horarios').set(currentSchedule);
         renderScheduleEditor();
-        // Feedback visual simple
         const btn = document.activeElement;
         if(btn) {
             const originalText = btn.innerText;
@@ -129,13 +121,11 @@ async function saveSchedule() {
     }
 }
 
-// --- GESTIÓN DE CITAS ---
 async function loadAppointments() {
     const list = document.getElementById('appointmentsList');
     list.innerHTML = 'Cargando...';
 
     try {
-        // Traer citas futuras (podrías filtrar por fecha aqui)
         const snapshot = await window.firebaseDB.appointmentsCollection
             .orderBy('date', 'desc')
             .orderBy('time', 'asc')
@@ -152,7 +142,7 @@ async function loadAppointments() {
         snapshot.forEach(doc => {
             const data = doc.data();
             const id = doc.id;
-            const date = new Date(data.date + 'T00:00:00'); // Fix timezone issue visually
+            const date = new Date(data.date + 'T00:00:00');
             const dateStr = date.toLocaleDateString('es-AR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
             const item = document.createElement('div');

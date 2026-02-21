@@ -22,7 +22,6 @@ body {
     background-color: var(--color-light);
 }
 
-/* Header / Hero */
 .hero {
     background: linear-gradient(135deg, var(--color-primary) 0%, #4a5660 100%);
     color: var(--color-white);
@@ -146,7 +145,6 @@ body {
     object-position: center;
 }
 
-/* Servicios de Neuropsicología */
 .neuropsychology {
     padding: var(--spacing-lg) var(--spacing-md);
     background: linear-gradient(135deg, var(--color-primary) 0%, #4a5660 100%);
@@ -156,7 +154,6 @@ body {
 .neuropsychology h2 {
     font-size: 2rem;
     color: var(--color-white);
-    margin-bottom: var(--spacing-lg);
     font-weight: 400;
     letter-spacing: 2px;
     text-align: left;
@@ -219,7 +216,6 @@ body {
     opacity: 0.9;
 }
 
-/* Neuromúsica */
 .neuromusic {
     padding: 0;
     background-color: var(--color-light);
@@ -286,7 +282,6 @@ body {
     object-position: center;
 }
 
-/* Fases del Proceso */
 .process-phases {
     padding: var(--spacing-lg) var(--spacing-md);
     background: linear-gradient(135deg, var(--color-primary) 0%, #4a5660 100%);
@@ -346,7 +341,6 @@ body {
     opacity: 0.9;
 }
 
-/* Técnicas Efectivas */
 .effective-techniques {
     padding: 0;
     background-color: var(--color-white);
@@ -360,7 +354,6 @@ body {
     color: var(--color-secondary);
 }
 
-/* Próximos Pasos */
 .next-steps {
     padding: var(--spacing-lg) var(--spacing-md);
     background: linear-gradient(135deg, #4a5660 0%, var(--color-primary) 100%);
@@ -428,109 +421,99 @@ body {
     color: var(--color-secondary);
 }
 
-/* Contacto */
-.contact {
+.professional-profile {
     padding: var(--spacing-lg) var(--spacing-md);
-    background: linear-gradient(180deg, var(--color-secondary) 0%, #b5c1cb 100%);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.profile-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-text h2 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+    letter-spacing: 2px;
     text-align: center;
 }
 
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 400;
-}
-
-.contact-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-lg);
-    opacity: 0.95;
-}
-
-.contact-info {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
-}
-
-.contact-item {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-md);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.contact-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
-}
-
-.contact-label {
-    font-size: 1.2rem;
-    font-weight: 400;
+.profile-text h3 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    text-align: center;
     margin-bottom: 0.5rem;
-}
-
-.contact-item a {
-    color: var(--color-white);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: opacity 0.3s ease;
-}
-
-.contact-item a:hover {
-    opacity: 0.8;
-}
-
-.contact-whatsapp {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-whatsapp span {
-    color: var(--color-white);
-    font-size: 1rem;
-}
-
-.contact-whatsapp svg {
-    fill: var(--color-white);
-}
-
-.footer-signature {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.85rem;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.footer-signature:hover {
-    opacity: 0.9;
-}
-
-.footer-signature a {
-    color: var(--color-white);
-    text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s ease;
 }
 
-.footer-signature a:hover {
-    opacity: 0.8;
-    text-decoration: underline;
+.credential-highlight {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
 }
 
-/* Sección de Agendar Cita */
+.profile-bio,
+.profile-commitment {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+    text-align: justify;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.skill-group {
+    background: var(--color-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-secondary);
+    transition: transform 0.3s ease;
+}
+
+.skill-group:hover {
+    transform: translateY(-5px);
+}
+
+.skill-group h4 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.skill-group ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-group ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+}
+
+.skill-group ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .booking-section {
     padding: var(--spacing-lg) var(--spacing-md);
     background: var(--color-light);
@@ -563,7 +546,6 @@ body {
     margin-top: var(--spacing-lg);
 }
 
-/* Calendario */
 .calendar-container {
     background: var(--color-white);
     border-radius: var(--border-radius);
@@ -662,7 +644,6 @@ body {
     border: 2px solid var(--color-secondary);
 }
 
-/* Horarios */
 .time-slots-container {
     background: var(--color-white);
     border-radius: var(--border-radius);
@@ -720,7 +701,6 @@ body {
     border-color: var(--color-secondary);
 }
 
-/* Formulario de Reserva */
 .booking-form {
     margin-top: var(--spacing-md);
     padding-top: var(--spacing-md);
@@ -798,7 +778,106 @@ body {
     display: block;
 }
 
-/* Botón Flotante WhatsApp */
+.contact {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-secondary) 0%, #b5c1cb 100%);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.contact-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+}
+
+.contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.contact-item a:hover {
+    opacity: 0.8;
+}
+
+.contact-whatsapp {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-whatsapp span {
+    font-size: 1rem;
+}
+
+.contact-whatsapp svg {
+    fill: var(--color-white);
+}
+
+.footer-signature {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.footer-signature:hover {
+    opacity: 0.9;
+}
+
+.footer-signature a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.footer-signature a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 .floating-whatsapp-btn {
     position: fixed;
     bottom: 110px;
@@ -824,7 +903,6 @@ body {
     box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
 }
 
-/* Botón Flotante Agendar Cita */
 .floating-book-btn {
     position: fixed;
     bottom: 30px;
@@ -865,7 +943,6 @@ body {
     }
 }
 
-/* Animaciones */
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -890,7 +967,6 @@ body {
     animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
@@ -935,7 +1011,6 @@ body {
         order: -1;
     }
 
-    /* FORZAR 1 COLUMNA en Fases del Proceso */
     .phases-container {
         grid-template-columns: 1fr !important;
         margin: 0 auto;
@@ -950,7 +1025,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    /* CALENDARIO: reducir tamaño en móviles */
     .calendar-container {
         padding: 1rem;
     }
@@ -983,7 +1057,6 @@ body {
         padding: 0.25rem;
     }
 
-    /* TIME SLOTS: más pequeños en móviles */
     .time-slots {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         gap: 0.5rem;
@@ -1008,7 +1081,6 @@ body {
         justify-content: center;
     }
 
-    /* Botón flotante WhatsApp centrado en móviles */
     .floating-whatsapp-btn {
         left: 50%;
         right: auto;
@@ -1022,7 +1094,6 @@ body {
         transform: translateX(-50%) translateY(-5px);
     }
 
-    /* Botón flotante Agendar centrado en móviles */
     .floating-book-btn {
         left: 50%;
         right: auto;
@@ -1034,6 +1105,11 @@ body {
 
     .floating-book-btn:hover {
         transform: translateX(-50%) translateY(-5px);
+    }
+
+    .profile-bio,
+    .profile-commitment {
+        text-align: left;
     }
 }
 
@@ -1055,12 +1131,10 @@ body {
         font-size: 1.5rem;
     }
 
-    /* FORZAR 1 COLUMNA en fases del proceso */
     .phases-container {
         grid-template-columns: 1fr !important;
     }
 
-    /* Calendario aún más compacto */
     .calendar-container {
         padding: 0.75rem;
     }
@@ -1090,103 +1164,3 @@ body {
         font-size: 0.95rem;
     }
 }
-
-/* Perfil Profesional */
-.professional-profile {
-    padding: var(--spacing-lg) var(--spacing-md);
-    background-color: var(--color-white);
-    color: var(--color-primary);
-}
-
-.profile-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.profile-text h2 {
-    font-size: 2rem;
-    color: var(--color-secondary);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-.profile-text h3 {
-    font-size: 1.8rem;
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.credential-highlight {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--color-secondary);
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-}
-
-.profile-bio, .profile-commitment {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: var(--spacing-sm);
-    text-align: justify;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.skill-group {
-    background: var(--color-light);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--color-secondary);
-    transition: transform 0.3s ease;
-}
-
-.skill-group:hover {
-    transform: translateY(-5px);
-}
-
-.skill-group h4 {
-    font-size: 1.3rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-primary);
-}
-
-.skill-group ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.skill-group ul li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    font-size: 1rem;
-}
-
-.skill-group ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--color-secondary);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-@media (max-width: 768px) {
-    .profile-bio, .profile-commitment {
-        text-align: left;
-    }
-}
-
