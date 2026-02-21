@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Psychologist Mar del Plata | Online Virtual Psychology | Lic. MM Luena</title>
+    <meta name="description" content="Professional psychologist in Mar del Plata and online virtual care. Clinical psychology, neuropsychology, therapy, cognitive assessments and rehabilitation services. Lic. MM Luena (MP 47861). In-person and virtual consultations.">
+    <meta name="keywords" content="psychologist, psychology, psychologist mar del plata, virtual psychologist, online psychologist, online therapy, virtual psychological care, neuropsychology, psychotherapy, therapy, cognitive assessments, rehabilitation, mental health, psychological consultation, psychological care mar del plata, therapist mar del plata, in-person therapy, lic mm luena, mp 47861">
+    <meta name="author" content="Lic. MM Luena">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="AR-B">
+    <meta name="geo.placename" content="Mar del Plata">
+    <meta name="geo.position" content="-38.0055;-57.5426">
+    <meta name="ICBM" content="-38.0055, -57.5426">
+    
+    <link rel="canonical" href="https://tu-dominio.com/en/">
+
+    <link rel="icon" href="../images/arbolcerebro.png" type="image/png">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Psychologist Mar del Plata | Virtual and In-Person Care | Lic. MM Luena">
+    <meta property="og:description" content="Professional psychologist in Mar del Plata. Virtual and in-person psychological care. Online therapy, neuropsychological assessments and cognitive rehabilitation. Book your consultation.">
+    <meta property="og:image" content="../images/arbolcerebro.png">
+    <meta property="og:url" content="https://tu-dominio.com/en/">
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Psychologist",
+      "name": "Lic. María de los Milagros Luena",
+      "alternateName": ["Psychologist Mar del Plata", "Virtual Psychologist", "MM Luena"],
+      "image": "../images/hero.png",
+      "@id": "",
+      "url": "",
+      "telephone": "+542235126815",
+      "email": "milluena@yahoo.com.ar",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mar del Plata", 
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Mar del Plata"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Psychology Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Virtual Psychological Consultation",
+              "description": "Online psychological care via video call"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "In-Person Psychological Consultation",
+              "description": "Psychological care in Mar del Plata"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Neuropsychological Assessment",
+              "description": "Cognitive and neuropsychological assessments"
+            }
+          }
+        ]
+      },
+      "knowsAbout": ["Clinical Psychology", "Neuropsychology", "Virtual Therapy", "Cognitive Assessments", "Cognitive Rehabilitation", "Mental Health"],
+      "memberOf": {
+        "@type": "ProfessionalService",
+        "name": "College of Psychologists"
+      },
+      "identifier": "MP 47861",
+      "description": "Professional psychologist in Mar del Plata offering virtual and in-person care. Specialized in clinical psychology, neuropsychology, cognitive assessments and rehabilitation. MP 47861.",
+      "priceRange": "$$"
+    }
+    </script>
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="../images/hero.png" alt="Psychologist Mar del Plata - Virtual and in-person psychology office">
+            </div>
+            <div class="hero-text">
+                <div class="brain-icon">
+                    <img src="../images/arbolcerebro.png" alt="Psychologist neuropsychology Mar del Plata">
+                </div>
+                <h1>Psychologist in Mar del Plata<br>Virtual and In-Person Care</h1>
+                <p class="credentials">Lic. MM Luena - Psychologist<br>MP 47861</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/542235126815" target="_blank" class="btn btn-whatsapp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Contact via WhatsApp
+                    </a>
+                    <a href="#agendar" class="btn btn-schedule">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="neuropsychology">
+        <h2>PSYCHOLOGY AND NEUROPSYCHOLOGY SERVICES IN MAR DEL PLATA</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Professional psychological care in-person in Mar del Plata and online virtual sessions. Clinical psychology consultations, therapy and specialized assessments.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/evaluaciones.png" alt="Psychological and neuropsychological assessments">
+                </div>
+                <h3>Psychological Assessments</h3>
+                <p>Precise assessments to understand brain function and personality construction. Available in-person and virtually.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/terapiaintegral.png" alt="Comprehensive psychological therapy virtual and in-person">
+                </div>
+                <h3>Comprehensive Psychological Therapy</h3>
+                <p>Psychological care from a unified perspective of the human experience. Design of intervention models tailored to each client.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/rehab.jpeg" alt="Cognitive and neuropsychological rehabilitation">
+                </div>
+                <h3>Cognitive Rehabilitation</h3>
+                <p>Comprehensive neuropsychological rehabilitation to enhance your cognitive and emotional abilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="neuromusic">
+        <div class="section-content">
+            <div class="content-text">
+                <h2>NEUROMUSIC</h2>
+                <ul>
+                    <li>Emotional neuromodulator, a tool we incorporate to achieve therapeutic goals.</li>
+                    <li>Memory improvement.</li>
+                    <li>Stress reduction.</li>
+                    <li>Self-regulation learning.</li>
+                    <li>Increased emotional well-being.</li>
+                    <li>Design of intervention programs aimed at overcoming what prevents you from developing well-being.</li>
+                </ul>
+            </div>
+            <div class="content-image">
+                <img src="../images/musicoterapia.png" alt="Neuromusic psychological therapy Mar del Plata">
+            </div>
+        </div>
+    </section>
+
+    <section class="process-phases">
+        <h2>PROCESS PHASES</h2>
+        <div class="phases-container">
+            <div class="phase">
+                <div class="phase-number">1</div>
+                <h3>ASSESSMENT</h3>
+                <p>Identification of needs.</p>
+            </div>
+            <div class="phase">
+                <div class="phase-number">2</div>
+                <h3>INTERVENTION</h3>
+                <p>Design and application of techniques.</p>
+            </div>
+            <div class="phase">
+                <div class="phase-number">3</div>
+                <h3>FOLLOW-UP</h3>
+                <p>Progress monitoring.</p>
+            </div>
+            <div class="phase">
+                <div class="phase-number">4</div>
+                <h3>ADJUSTMENT</h3>
+                <p>Approach modification.</p>
+            </div>
+            <div class="phase">
+                <div class="phase-number">5</div>
+                <h3>SUCCESS</h3>
+                <p>Achievement of goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="effective-techniques">
+        <div class="section-content">
+            <div class="content-image">
+                <img src="../images/tecnicasefectivas.png" alt="Effective clinical psychology techniques">
+            </div>
+            <div class="content-text">
+                <h2>EFFECTIVE TECHNIQUES</h2>
+                <ul>
+                    <li>Stress reduction mechanisms.</li>
+                    <li>Overcoming repetitive patterns.</li>
+                    <li>Anxiety.</li>
+                    <li>Depression.</li>
+                    <li>Self-fulfillment.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-info" style="padding: 3rem 5%; background: #f8f9fa; text-align: left; max-width: 1200px; margin: 0 auto;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem;">Psychologist in Mar del Plata - Virtual and In-Person Care</h2>
+            
+            <p style="line-height: 1.8; color: #555; margin-bottom: 1rem;">
+                Looking for a <strong>psychologist in Mar del Plata</strong>? As a licensed <strong>professional psychologist</strong> (MP 47861), I offer <strong>clinical psychology</strong> services both in-person in Mar del Plata and <strong>virtual psychological care</strong> online.
+            </p>
+            
+            <h3 style="color: #2c3e50; margin-top: 2rem; margin-bottom: 1rem;">Why choose virtual psychological care?</h3>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 1rem;">
+                <strong>Online psychological therapy</strong> or <strong>virtual consultation with a psychologist</strong> allows you to access professional psychology services from anywhere. Whether you need a <strong>virtual psychologist</strong> for convenience, distance or personal preference, you will receive the same professional and confidential care as in an in-person consultation.
+            </p>
+            
+            <h3 style="color: #2c3e50; margin-top: 2rem; margin-bottom: 1rem;">Psychology Services I offer:</h3>
+            <ul style="line-height: 2; color: #555; margin-bottom: 1rem; list-style-position: inside;">
+                <li><strong>Clinical psychology</strong> - Individual therapy for adults</li>
+                <li><strong>Neuropsychology</strong> - Specialized cognitive assessments</li>
+                <li><strong>Online therapy</strong> - Virtual consultations via video call</li>
+                <li><strong>In-person consultations</strong> in Mar del Plata</li>
+                <li><strong>Psychological</strong> and neuropsychological <strong>assessments</strong></li>
+                <li><strong>Cognitive rehabilitation</strong></li>
+            </ul>
+            
+            <h3 style="color: #2c3e50; margin-top: 2rem; margin-bottom: 1rem;">When should you see a psychologist?</h3>
+            <p style="line-height: 1.8; color: #555; margin-bottom: 1rem;">
+                You can consult a <strong>professional psychologist</strong> when experiencing anxiety, depression, stress, relationship issues, grief, life crises, or simply when you wish to improve your emotional well-being. <strong>Psychological care</strong> is a valuable resource for personal growth and mental health.
+            </p>
+            
+            <p style="line-height: 1.8; color: #555; margin-bottom: 1rem;">
+                If you are in <strong>Mar del Plata</strong> or surrounding areas, you can schedule an in-person consultation. If you prefer the virtual option or are located in another city, <strong>online psychological consultation</strong> is an excellent choice.
+            </p>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#agendar" class="btn btn-schedule" style="display: inline-block; padding: 1rem 2rem; background: #3498db; color: white; text-decoration: none; border-radius: 5px;">Book a Consultation Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-steps">
+        <h2>NEXT STEPS</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <h3>First consultation</h3>
+                <div class="step-details">
+                    <h4>Schedule your consultation</h4>
+                    <ul>
+                        <li>Choose date and time.</li>
+                        <li>Confirm attendance.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Pre-consultation questionnaire</h3>
+                <div class="step-details">
+                    <h4>Complete the questionnaire:</h4>
+                    <ul>
+                        <li>Questions about your background.</li>
+                        <li>Relevant personal information.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Therapy goals</h3>
+                <div class="step-details">
+                    <h4>Set your goals:</h4>
+                    <ul>
+                        <li>Define clear expectations.</li>
+                        <li>Prioritize your needs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="professional-profile">
+        <div class="profile-content">
+            <div class="profile-text">
+                <h2>PROFESSIONAL PSYCHOLOGIST IN MAR DEL PLATA</h2>
+                <h3>Lic. María de los Milagros Luena</h3>
+                <p class="credential-highlight">Licensed Psychologist - M.P. 47861 | In-Person and Virtual Care</p>
+                
+                <p class="profile-bio">
+                    Psychologist in Mar del Plata with a decade of experience in psychological profile assessment through the application of diagnostic tools. I offer virtual and in-person psychological care. 
+                    Specialized in addressing diverse pathologies, with a comprehensive perspective that considers the complexity of the psychic framework. 
+                    Understanding that cognition, emotionality and spirituality are interrelated and impact the physicality and behavior of individuals who constitute the social fabric.
+                </p>
+                <p class="profile-commitment">
+                    Committed to the psychological and emotional well-being of the client, understanding that they are a subject navigating new questions and concerns inherent to the epochal shift in an intensely technologized era.
+                    Demonstrated skills in implementing effective interventions and developing projects based on training as a socio-anthropological analyst.
+                </p>
+                
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h4>Education and Specializations</h4>
+                        <ul>
+                            <li>Licensed Psychologist (National University of Mar del Plata, 2017)</li>
+                            <li>Neuropsychological Assessment (Favaloro University, 2022)</li>
+                            <li>Emergency Psychology (Crisis prevention and intervention)</li>
+                            <li>Zulliger and Rorschach Tests (Workplace and clinical assessment)</li>
+                            <li>Psychological First Aid (FEPRA / UAB)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Skills and Competencies</h4>
+                        <ul>
+                            <li>Communication, Responsibility and Management</li>
+                            <li>Teamwork and Leadership</li>
+                            <li>Positive Psychology and Healthy Workplace Design</li>
+                            <li>Workplace and organizational interventions</li>
+                            <li>Languages: Spanish (Native), English (Advanced)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agendar" class="booking-section">
+        <div class="booking-container">
+            <h2>Book Appointment</h2>
+            <p class="booking-subtitle">Select an available date and time</p>
+            
+            <div class="booking-content">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="month-nav">&lt;</button>
+                        <h3 id="currentMonth"></h3>
+                        <button id="nextMonth" class="month-nav">&gt;</button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendarDays" class="calendar-days"></div>
+                </div>
+                
+                <div class="time-slots-container">
+                    <h3>Available Times</h3>
+                    <p class="selected-date-display" id="selectedDateDisplay">Select a date from the calendar</p>
+                    <div id="timeSlots" class="time-slots"></div>
+                    
+                    <div id="bookingForm" class="booking-form" style="display: none;">
+                        <h4>Confirm Booking</h4>
+                        <input type="text" id="clientName" placeholder="Full name" required>
+                        <input type="email" id="clientEmail" placeholder="Email" required>
+                        <input type="tel" id="clientPhone" placeholder="Phone" required>
+                        <textarea id="clientNotes" placeholder="Reason for consultation (optional)" rows="3"></textarea>
+                        <button id="confirmBooking" class="btn btn-confirm">Confirm Appointment</button>
+                        <button id="cancelBooking" class="btn btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="bookingMessage" class="booking-message"></div>
+        </div>
+    </section>
+
+    <footer class="contact">
+        <h2>Contact Your Psychologist in Mar del Plata</h2>
+        <p class="contact-subtitle">Office in Mar del Plata and online virtual care. Book your psychology consultation today.</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:milluena@yahoo.com.ar">milluena@yahoo.com.ar</a>
+            </div>
+            <a href="https://wa.me/542235126815" target="_blank" class="contact-item contact-whatsapp">
+                <div class="contact-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                </div>
+                <div class="contact-label">WhatsApp</div>
+                <span>+54 223 5 126 815</span>
+            </a>
+        </div>
+        <div class="footer-signature">
+            Developed and Designed by: <a href="https://www.gokywebs.net" target="_blank" rel="noopener noreferrer">Gokywebs.net</a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/542235126815" target="_blank" id="floatingWhatsAppBtn" class="floating-whatsapp-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        WhatsApp
+    </a>
+
+    <a href="#agendar" id="floatingBookBtn" class="floating-book-btn" style="display: none;">
+        📅 Book Appointment
+    </a>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script src="../firebase-config.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
